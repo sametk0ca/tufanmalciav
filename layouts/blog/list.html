@@ -10,8 +10,10 @@
     <div class="blog-grid">
       {{ range .Paginator.Pages }}
       <article class="blog-card">
-        <div class="blog-card__gradient" style="background: linear-gradient(135deg, {{ index (slice "#1a3a63" "#142e50" "#2a4f7a" "#0f2440") (mod (len .Title) 4) }}, {{ index (slice "#c4a050" "#d4b366" "#3d6694" "#5a88b5") (mod (len .Title) 4) }});">
-        </div>
+        {{ $colors1 := slice "#1a3a63" "#142e50" "#2a4f7a" "#0f2440" }}
+        {{ $colors2 := slice "#c4a050" "#d4b366" "#3d6694" "#5a88b5" }}
+        {{ $idx := mod (len .Title) 4 }}
+        <div class="blog-card__gradient" style="background: linear-gradient(135deg, {{ index $colors1 $idx }}, {{ index $colors2 $idx }});"></div>
         <div class="blog-card__body">
           <div class="blog-card__meta">
             {{ with .Params.kategoriler }}
