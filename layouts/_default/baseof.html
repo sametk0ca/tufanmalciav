@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="author" content="{{ .Site.Params.author }}">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:locale" content="tr_TR">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  <!-- CSS -->
+  {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  {{ hugo.Generator }}
+</head>
+<body>
+  {{ partial "header.html" . }}
+
+  <main id="main-content">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ partial "footer.html" . }}
+
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('.main-nav');
+
+      if (toggle && nav) {
+        toggle.addEventListener('click', function() {
+          nav.classList.toggle('active');
+          this.classList.toggle('active');
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !expanded);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

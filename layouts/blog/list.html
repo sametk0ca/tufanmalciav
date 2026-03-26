@@ -1,0 +1,56 @@
+{{ define "main" }}
+<div class="page-header">
+  <div class="container">
+    <h1>Blog</h1>
+    <p>Güncel hukuki konular, bilgilendirici yazılar ve makaleler.</p>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    <div class="blog-grid">
+      {{ range .Paginator.Pages }}
+      <article class="blog-card">
+        <div class="blog-card__gradient" style="background: linear-gradient(135deg, {{ index (slice "#1a3a63" "#142e50" "#2a4f7a" "#0f2440") (mod (len .Title) 4) }}, {{ index (slice "#c4a050" "#d4b366" "#3d6694" "#5a88b5") (mod (len .Title) 4) }});">
+        </div>
+        <div class="blog-card__body">
+          <div class="blog-card__meta">
+            {{ with .Params.kategoriler }}
+              <span class="blog-card__category">{{ index . 0 }}</span>
+            {{ end }}
+            <span class="blog-card__date">{{ .Date.Format "2 January 2006" }}</span>
+          </div>
+          <h3 class="blog-card__title">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </h3>
+          <p class="blog-card__excerpt">{{ .Summary }}</p>
+          <a href="{{ .Permalink }}" class="blog-card__read-more">
+            Devamını Oku
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+
+    <!-- Pagination -->
+    {{ $pag := .Paginator }}
+    {{ if gt $pag.TotalPages 1 }}
+    <nav class="pagination" aria-label="Sayfalama">
+      {{ if $pag.HasPrev }}
+        <a href="{{ $pag.Prev.URL }}" aria-label="Önceki sayfa">&larr;</a>
+      {{ end }}
+      {{ range $pag.Pagers }}
+        {{ if eq . $pag }}
+          <span class="active">{{ .PageNumber }}</span>
+        {{ else }}
+          <a href="{{ .URL }}">{{ .PageNumber }}</a>
+        {{ end }}
+      {{ end }}
+      {{ if $pag.HasNext }}
+        <a href="{{ $pag.Next.URL }}" aria-label="Sonraki sayfa">&rarr;</a>
+      {{ end }}
+    </nav>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

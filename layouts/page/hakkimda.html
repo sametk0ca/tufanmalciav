@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="about-hero">
+  <div class="container">
+    <div class="about-hero__content">
+      <div class="about-hero__photo-placeholder">TM</div>
+      <div class="about-hero__info">
+        <h1>Av. Tufan Malcı</h1>
+        <p class="subtitle">Avukat | Hukuk Danışmanı</p>
+        <p class="bio">
+          Hukuki süreçlerde müvekkillerine güvenilir ve etkili çözümler sunan,
+          adaleti ve hakkaniyeti ön planda tutan bir hukuk profesyoneli.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="about-body">
+  <div class="container container--narrow">
+    {{ .Content }}
+  </div>
+</section>
+{{ end }}

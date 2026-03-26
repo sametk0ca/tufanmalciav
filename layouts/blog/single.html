@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="post-header">
+  <div class="container">
+    <div class="post-header__meta">
+      {{ with .Params.kategoriler }}
+        <span class="post-header__category">{{ index . 0 }}</span>
+      {{ end }}
+      <span class="post-header__date">{{ .Date.Format "2 January 2006" }}</span>
+    </div>
+    <h1 class="post-header__title">{{ .Title }}</h1>
+  </div>
+</div>
+<article class="post-content">
+  <div class="container">
+    {{ .Content }}
+
+    {{ with .Params.etiketler }}
+    <div class="tags-list">
+      {{ range . }}
+        <a href="{{ "/etiketler/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</article>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Hukuki Desteğe mi İhtiyacınız Var?</h2>
+    <p>Bu konuda detaylı bilgi almak veya danışmanlık hizmeti için iletişime geçin.</p>
+    <a href="/iletisim/" class="btn btn--primary">İletişime Geçin</a>
+  </div>
+</section>
+{{ end }}

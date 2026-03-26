@@ -1,0 +1,73 @@
+{{ define "main" }}
+<div class="page-header">
+  <div class="container">
+    <h1>Uzmanlık Alanları</h1>
+    <p>Geniş yelpazede hukuki hizmet ve danışmanlık sunuyoruz.</p>
+  </div>
+</div>
+<section class="expertise-list">
+  <div class="container container--narrow">
+    <div class="expertise-detail">
+      <div class="expertise-detail__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <h3>Ceza Hukuku</h3>
+        <p>Ceza davalarında savunma, soruşturma ve kovuşturma süreçlerinde profesyonel hukuki destek. Ağır ceza, asliye ceza ve sulh ceza mahkemelerinde savunma hizmetleri.</p>
+      </div>
+    </div>
+
+    <div class="expertise-detail">
+      <div class="expertise-detail__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div>
+        <h3>Aile Hukuku</h3>
+        <p>Boşanma davaları, velayet, nafaka, mal paylaşımı ve aile içi uyuşmazlıklarda hukuki danışmanlık ve dava takibi hizmetleri.</p>
+      </div>
+    </div>
+
+    <div class="expertise-detail">
+      <div class="expertise-detail__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+      </div>
+      <div>
+        <h3>Ticaret Hukuku</h3>
+        <p>Şirketler hukuku, ticari sözleşmeler, ticari uyuşmazlıklar, iflas ve konkordato süreçlerinde kurumsal hukuki danışmanlık.</p>
+      </div>
+    </div>
+
+    <div class="expertise-detail">
+      <div class="expertise-detail__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+      </div>
+      <div>
+        <h3>Gayrimenkul Hukuku</h3>
+        <p>Tapu işlemleri, kira uyuşmazlıkları, kat mülkiyeti, kamulaştırma ve gayrimenkul alım-satım süreçlerinde hukuki destek.</p>
+      </div>
+    </div>
+
+    <div class="expertise-detail">
+      <div class="expertise-detail__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <div>
+        <h3>İş Hukuku</h3>
+        <p>İşçi-işveren uyuşmazlıkları, iş kazaları, kıdem ve ihbar tazminatı, işe iade davaları ve iş sözleşmeleri hakkında danışmanlık.</p>
+      </div>
+    </div>
+
+    <div class="expertise-detail">
+      <div class="expertise-detail__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <div>
+        <h3>İdare Hukuku</h3>
+        <p>İdari işlemlerin iptali, tam yargı davaları, kamu ihale hukuku ve idari yaptırımlara itiraz süreçlerinde hukuki destek.</p>
+      </div>
+    </div>
+
+    {{ .Content }}
+  </div>
+</section>
+{{ end }}
